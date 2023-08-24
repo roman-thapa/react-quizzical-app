@@ -1,3 +1,61 @@
 * {
   text-align: center;
+  background: #F5F7FB;
+  color: #293264;
+  text-align: center;
+  font-family: Karla;
+  line-height: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.top--right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.bottom--left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+h1 {
+  color: #293264;
+text-align: center;
+font-family: Karla;
+font-size: 31.25px;
+font-style: normal;
+font-weight: 850;
+line-height: normal;
+}
+
+.home--page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.start--quiz {
+  border-radius: 15px;
+  background: #4D5B9E;
+  width: 12.5rem;
+  height: 3.5rem;
+  border: none;
+  color: #F5F7FB;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 1rem;
 }

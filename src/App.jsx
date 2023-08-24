@@ -1,5 +1,7 @@
 import React from 'react'
 import HomePage from './HomePage'
+import Game from './Game'
+
 
 function App() {
   const [startQuiz, setStartQuiz] = React.useState(false)
@@ -9,11 +11,13 @@ function App() {
   console.log(startQuiz)
   return (
     <>
-      <h1>Quizzical</h1>
       {!startQuiz && <HomePage 
         start={start}
       />}
+      {startQuiz && <Game />}
+      
     </>
+    
   )
 }
 export default App
