@@ -1,4 +1,5 @@
 import React from "react";
+import he from 'he'
 
 import TopRight from "./assets/game-tr.svg"
 import BottomLeft from "./assets/game-bl.svg"
@@ -8,6 +9,13 @@ export default function Game(props) {
         props.newGame()
         console.log(props.data)
     }
+
+    function generateQuestions() {
+        return props.data.map((question, index) => (
+            <p key={index}>{he.decode(question.question)}</p>
+          ));
+    }
+
     return (
         <>
             <img 
@@ -18,6 +26,7 @@ export default function Game(props) {
                 <h1>
                     Game Started!!!
                 </h1>
+                <div>{generateQuestions()}</div>
                 <button 
                     className="start--quiz"
                     onClick={handleClick}

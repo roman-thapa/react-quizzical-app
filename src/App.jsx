@@ -11,7 +11,9 @@ export default function App() {
   React.useEffect(() => {
     fetch("https://opentdb.com/api.php?amount=5")
       .then(res => res.json())
-      .then(data => setQuizData(data))
+      .then(data => {
+        setQuizData(data)
+      })
   }, [startQuiz, newGame])
   
   function startNewGame() {
@@ -29,7 +31,7 @@ export default function App() {
           start={start}
         /> : 
         <Game 
-          data={quizData}
+          data={quizData.results}
           newGame={startNewGame}
         />
       }
