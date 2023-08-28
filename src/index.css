@@ -59,3 +59,13 @@ line-height: normal;
   line-height: normal;
   margin: 1rem;
 }
+
+hr { 
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 15%;
+  margin-right: 15%;
+  border-style: inset;
+  border-width: 1px;
+}
