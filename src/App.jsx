@@ -9,7 +9,7 @@ export default function App() {
   const [newGame, setNewGame] = React.useState(false)
 
   React.useEffect(() => {
-    fetch("https://opentdb.com/api.php?amount=1")
+    fetch("https://opentdb.com/api.php?amount=5")
       .then(res => res.json())
       .then(data => {
         setQuizData(data)

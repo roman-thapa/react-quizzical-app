@@ -19,18 +19,35 @@ export default function Game(props) {
     
     const handleClick = () => {
         props.newGame()
-        console.log(props.data)
     }
 
     function generateQuestions() {
         return props.data.map((info) => {
             return (
                 <>
-                    <p key={nanoid}>{he.decode(info.question)}</p>
+                    <label key={nanoid()}>{he.decode(info.question)}</label>
+                    <div className="options">
+                        {generateOptions(info)}
+                    </div>
                     <hr />
                 </>
             )
           });
+    }
+
+    function generateOptions(data) {
+        return data.choices.map(item => (
+            <button 
+                key={nanoid()} 
+                value={item}
+                onClick={(event) => {
+                    event.preventDefault()
+                    console.log(item===data.correct_answer)
+                }}
+            >
+                {he.decode(item)}
+            </button>
+        ))
     }
      
     return (
@@ -43,9 +60,9 @@ export default function Game(props) {
                 <h1>
                     Game Started!!!
                 </h1>
-                <div>
+                <form>
                     {generateQuestions()}
-                </div>
+                </form>
                 <button 
                     className="start--quiz"
                     onClick={handleClick}
@@ -60,45 +77,3 @@ export default function Game(props) {
         </>
     )
 }
-
-/**[
-    {
-        "category": "Geography",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "What is the Finnish word for &quot;Finland&quot;?",
-        "correct_answer": "Suomi",
-        "incorrect_answers": [
-            "Eesti",
-            "Magyarorsz&aacute;g",
-            "Sverige"
-        ],
-        "choices": [
-            "Suomi",
-            "Eesti",
-            "Magyarorsz&aacute;g",
-            "Sverige"
-        ]
-    }
-]*/
-
-/**[
-    {
-        "category": "Geography",
-        "type": "multiple",
-        "difficulty": "hard",
-        "question": "What is the Finnish word for &quot;Finland&quot;?",
-        "correct_answer": "Suomi",
-        "incorrect_answers": [
-            "Eesti",
-            "Magyarorsz&aacute;g",
-            "Sverige"
-        ],
-        "choices": [
-            "Eesti",
-            "Magyarorsz&aacute;g",
-            "Sverige",
-            "Suomi"
-        ]
-    }
-]*/

@@ -16,12 +16,16 @@ body {
   position: absolute;
   top: 0;
   right: 0;
+  object-fit: cover;
+  z-index: 0;
+  background-attachment: fixed;
 }
 
 .bottom--left {
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 0;
 }
 
 h1 {
@@ -68,4 +72,19 @@ hr {
   margin-right: 15%;
   border-style: inset;
   border-width: 1px;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+}
+
+.options > button {
+  border-radius: .5rem;
+  border:1px solid #4D5B9E;
+  min-width: 5rem;
+  height: 2rem;
 }
