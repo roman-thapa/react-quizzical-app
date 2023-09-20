@@ -5,7 +5,7 @@ import BottomLeft from "./assets/bottom-left.svg"
 
 export default function HomePage(props) {
     const handleClick = () => {
-        props.start()
+        props.start()   
     }
     return (
         <div className="home--page">

@@ -1,12 +1,11 @@
 import React from "react";
-import he from 'he'
-import { nanoid } from 'nanoid'
-
+import he from 'he';
+import { nanoid } from 'nanoid';
+import Questions from "./Questions";
 import TopRight from "./assets/game-tr.svg"
 import BottomLeft from "./assets/game-bl.svg"
 
 export default function Game(props) {
-
     (() => {
         props.data.map(info => {
             const randomIndex = Math.floor(
@@ -16,38 +15,12 @@ export default function Game(props) {
             info.choices.splice(randomIndex, 0, info.correct_answer)
         })
     }) ()
+
+    const [checkAnswer, setCheckAnswer] = React.useState(false)
     
     const handleClick = () => {
-        props.newGame()
-    }
-
-    function generateQuestions() {
-        return props.data.map((info) => {
-            return (
-                <>
-                    <label key={nanoid()}>{he.decode(info.question)}</label>
-                    <div className="options">
-                        {generateOptions(info)}
-                    </div>
-                    <hr />
-                </>
-            )
-          });
-    }
-
-    function generateOptions(data) {
-        return data.choices.map(item => (
-            <button 
-                key={nanoid()} 
-                value={item}
-                onClick={(event) => {
-                    event.preventDefault()
-                    console.log(item===data.correct_answer)
-                }}
-            >
-                {he.decode(item)}
-            </button>
-        ))
+        checkAnswer && props.newGame()
+        setCheckAnswer(prev=> !prev)
     }
      
     return (
@@ -60,14 +33,16 @@ export default function Game(props) {
                 <h1>
                     Game Started!!!
                 </h1>
-                <form>
-                    {generateQuestions()}
-                </form>
+                <div>
+                    <Questions 
+                        data = {props.data}
+                    />
+                </div>
                 <button 
                     className="start--quiz"
                     onClick={handleClick}
                 >
-                    New Game
+                    {!checkAnswer ? "Check Answer" : "New Game"}
                 </button>
             </div>
             <img 
