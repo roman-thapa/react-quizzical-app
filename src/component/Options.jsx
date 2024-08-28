@@ -26,18 +26,35 @@ const Options = ({
   };
 
   return (
-    <div className="answers">
-      {shuffledAnswers.map((answer, ind) => (
-        <button
-          key={ind}
-          className={`${arrOfUserAnswer[index] === answer ? "selected" : ""}`}
-          onClick={() => {
-            handleAnswerClick(answer);
-          }}
-        >
-          {answer}
-        </button>
-      ))}
+    <div>
+      {checkAnswers
+        ? shuffledAnswers.map((answer, ind) => (
+            <button
+              key={ind}
+              className={`${
+                arrOfUserAnswer[index] === answer
+                  ? answer === correct_answer
+                    ? "correct"
+                    : "wrong"
+                  : ""
+              }`}
+            >
+              {answer}
+            </button>
+          ))
+        : shuffledAnswers.map((answer, ind) => (
+            <button
+              key={ind}
+              className={`${
+                arrOfUserAnswer[index] === answer ? "selected" : ""
+              }`}
+              onClick={() => {
+                handleAnswerClick(answer);
+              }}
+            >
+              {answer}
+            </button>
+          ))}
     </div>
   );
 };
