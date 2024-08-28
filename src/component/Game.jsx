@@ -7,10 +7,14 @@ import Options from "./Options";
 
 function Game({ data, loading, newGame, checkAnswers, setCheckAnswer }) {
   const [arrOfUserAnswer, setArrOfUserAnswer] = useState(Array(5));
+  const [correctCount, setCorrectCount] = useState(0)
 
   const handleCheckAnswer = () => {
-    setCheckAnswer(true)
-  }
+    setCheckAnswer(true);
+    arrOfUserAnswer.map((ans, i) => {
+      ans===data[i].correct_answer && setCorrectCount(prev=>prev+1)
+    })
+  };
 
   return (
     <>
@@ -35,14 +39,26 @@ function Game({ data, loading, newGame, checkAnswers, setCheckAnswer }) {
           ))}
           {!checkAnswers ? (
             <div>
-              <button className="start--quiz" type="button" onClick={handleCheckAnswer}>
+              <button
+                className="start--quiz"
+                type="button"
+                onClick={handleCheckAnswer}
+              >
                 Check Answers
               </button>
             </div>
           ) : (
-            <button className="start--quiz" onClick={() => newGame()}>
+            <>
+            <h1>
+              You scored {correctCount}/5 correct
+            </h1>
+            <button className="start--quiz" onClick={() => {
+              setCorrectCount(0)
+              newGame()
+            }}>
               New Game
             </button>
+            </>
           )}
         </div>
       ) : (

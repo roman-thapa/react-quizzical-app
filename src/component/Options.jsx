@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import he from 'he'
 
 const Options = ({
   questionData,
@@ -39,7 +40,7 @@ const Options = ({
                   : ""
               }`}
             >
-              {answer}
+              {he.decode(answer)}
             </button>
           ))
         : shuffledAnswers.map((answer, ind) => (
@@ -52,7 +53,7 @@ const Options = ({
                 handleAnswerClick(answer);
               }}
             >
-              {answer}
+              {he.decode(answer)}
             </button>
           ))}
     </div>
