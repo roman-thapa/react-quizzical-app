@@ -55,6 +55,7 @@ function Game({ data, loading, newGame, checkAnswers, setCheckAnswer }) {
             <button className="start--quiz" onClick={() => {
               setCorrectCount(0)
               newGame()
+              setArrOfUserAnswer(Array(5))
             }}>
               New Game
             </button>
