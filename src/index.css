@@ -36,6 +36,7 @@ font-size: 31.25px;
 font-style: normal;
 font-weight: 850;
 line-height: normal;
+padding: 2rem;
 }
 
 .home--page {
@@ -96,4 +97,8 @@ button {
 .wrong {
   background-color: #FFB6C1; /* Light red for wrong answer */
   color: white;
+}
+
+.quiz{
+  padding: 2rem;
 }

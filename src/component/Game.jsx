@@ -20,7 +20,7 @@ function Game({ data, loading, newGame, checkAnswers, setCheckAnswer }) {
     <>
       <img src={TopRight} className="top--right" />
       {!loading ? (
-        <div>
+        <div className="quiz">
           <h1>Game Started!!!</h1>
           {data.map((item, index) => (
             <div key={nanoid()}>
