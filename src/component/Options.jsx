@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import he from 'he'
+import he from "he";
 
 const Options = ({
   questionData,

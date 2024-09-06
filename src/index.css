@@ -85,17 +85,17 @@ button {
 }
 
 .selected {
-  background-color: #5293e2; /* Green background for selected answer */
-  color: #fff; /* White text for selected answer */
+  background-color: #5293e2;
+  color: #fff;
 }
 
 .correct {
-  background-color: #4cfb4c; /* Light green for correct answer */
+  background-color: #4cfb4c; 
   color: white;
 }
 
 .wrong {
-  background-color: #FFB6C1; /* Light red for wrong answer */
+  background-color: #FFB6C1;
   color: white;
 }
 
